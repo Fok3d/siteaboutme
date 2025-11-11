@@ -1,22 +1,5 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>About Me</title>
-    <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-    <header>
-        <h1>About Me</h1>
-        <nav>
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
-<!doctype html>
-<html lang="en">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -24,11 +7,22 @@
         <link rel="stylesheet" href="style.css" />
     </head>
     <body>
+       
+        <canvas id="dotsCanvas" aria-hidden="false"></canvas>
         <div class="layout">
-            <aside class="sidebar">
+            <aside class="sidebar" id="sidebar">
+                
+                <button id="sidebarToggle" class="hamburger" aria-label="Toggle menu" aria-expanded="true">
+                    <svg width="28" height="20" viewBox="0 0 28 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <rect class="line line1" x="0" y="1" width="28" height="3" rx="1.5" fill="currentColor" />
+                        <rect class="line line2" x="0" y="8.5" width="28" height="3" rx="1.5" fill="currentColor" />
+                        <rect class="line line3" x="0" y="16" width="28" height="3" rx="1.5" fill="currentColor" />
+                    </svg>
+                </button>
+
                 <div class="profile">
-                    <h1 class="name">Your Name</h1>
-                    <p class="role">Developer · Designer</p>
+                    <h1 class="name">Miroslav Sklenář</h1>
+                    <p class="role">Umělec · Designer</p>
                 </div>
                 <nav class="side-nav">
                     <a href="#about">About</a>
@@ -41,11 +35,21 @@
                 </div>
             </aside>
 
+          
+            <button id="sidebarHandle" class="sidebar-handle" aria-label="Open menu" hidden>
+              
+                <svg width="20" height="14" viewBox="0 0 20 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <rect x="0" y="1" width="20" height="2" rx="1" fill="currentColor" />
+                    <rect x="0" y="6" width="20" height="2" rx="1" fill="currentColor" />
+                    <rect x="0" y="11" width="20" height="2" rx="1" fill="currentColor" />
+                </svg>
+            </button>
+
             <main class="content">
                 <section id="about" class="card hero">
-                    <h2>Hello — nice to meet you</h2>
+                    <h2>Hello</h2>
                     <p>
-                      something i guess
+                      dopsat
                     </p>
                     <div id="zluta" aria-hidden="true"></div>
                 </section>
@@ -76,9 +80,11 @@
                 </section>
 
                 <footer class="site-footer">
-                    <p>©Sklenar Miroslav — All rights reserved.</p>
+                    <p>©Miroslav Sklenář— All rights reserved.</p>
                 </footer>
             </main>
         </div>
+
+        <script src="script.js"></script>
     </body>
 </html>
