@@ -395,6 +395,20 @@ body {
 }
 
 
+
+@media (min-width: 881px) {
+    .sidebar {
+        position: sticky;
+        top: 0; 
+        align-self: stretch;
+        height: 100vh; 
+        overflow-y: auto;
+        z-index: 30; 
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+
 .sidebar-handle {
     position: fixed;
     left: 6px;
@@ -424,3 +438,117 @@ body.sidebar-collapsed .sidebar-handle {
 }
 
 /*udelat light mode*/
+
+
+.theme-wrap { 
+    margin-top: 12px; 
+}
+.theme-toggle { 
+    background: transparent; border: none; cursor: pointer; padding: 6px; 
+}
+.theme-toggle .toggle-track {
+    width: 46px;
+    height: 24px;
+    background: #ddd;
+    border-radius: 14px;
+    display: inline-block;
+    position: relative;
+    transition: background 220ms ease;
+}
+.theme-toggle .toggle-knob {
+    width: 18px;
+    height: 18px;
+    background: #fff;
+    border-radius: 50%;
+    position: absolute;
+    left: 3px;
+    top: 3px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.18);
+    transition: transform 220ms cubic-bezier(.2,.9,.2,1);
+}
+
+
+.theme-toggle[data-state="dark"] .toggle-track { 
+    background: #444; 
+}
+.theme-toggle[data-state="dark"] .toggle-knob { 
+    transform: translateX(22px); 
+}
+
+
+.card form { 
+    max-width: 760px; margin-top: 8px; 
+}
+.card .form-row { 
+    margin-bottom: 12px; display: flex; flex-direction: column; 
+}
+.card label { 
+    font-weight: 600; margin-bottom: 6px; color: inherit; font-size: 0.95rem; 
+}
+.card input[type="text"],
+.card input[type="email"],
+.card textarea { -webkit-appearance: none; appearance: none; border: 1px solid rgba(255,255,255,0.04); background: rgba(255,255,255,0.02); color: inherit; padding: 10px 12px; border-radius: 8px; font-family: inherit; font-size: 1rem; box-sizing: border-box; transition: border-color 150ms ease, box-shadow 150ms ease; }
+.card textarea { 
+    resize: vertical; min-height: 110px; 
+}
+.card input:focus, .card textarea:focus { 
+    outline: none; border-color: rgba(255,255,255,0.12); box-shadow: 0 6px 18px rgba(0,0,0,0.35) inset; 
+}
+
+.form-row.form-actions { 
+    display: flex; align-items: center; gap: 12px; 
+}
+.card button#cf-submit { 
+    border: none; padding: 12px 18px; border-radius: 12px; font-weight: 800; cursor: pointer; box-shadow: 0 6px 16px rgba(0,0,0,0.12); transition: transform 160ms ease, box-shadow 160ms ease; display: inline-flex; align-items: center; gap: 8px; 
+}
+.card button#cf-submit:disabled { 
+    opacity: 0.6; cursor: default; 
+}
+
+
+    body[data-theme="dark"] .card button#cf-submit {
+        
+        background: linear-gradient(90deg, #1f3e7a 0%, #16325f 50%, #0f294b 100%);
+        color: #e6f5ff;
+        border: 1px solid rgba(255,255,255,0.04);
+        box-shadow: 0 10px 30px rgba(4,12,30,0.6), inset 0 -4px 18px rgba(255,255,255,0.02);
+    }
+    body[data-theme="dark"] .card button#cf-submit:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 14px 36px rgba(4,12,30,0.6), inset 0 -6px 22px rgba(255,255,255,0.03);
+    }
+    body[data-theme="dark"] .card button#cf-submit:focus {
+        outline: none;
+        box-shadow: 0 14px 36px rgba(4,12,30,0.6), 0 0 0 4px rgba(30,90,180,0.06);
+    }
+
+body[data-theme="light"] .card button#cf-submit {
+   
+    background: linear-gradient(90deg, #b56bd8, #ff6fb5);
+    color: #fff;
+    border: 1px solid rgba(0,0,0,0.06);
+    box-shadow: 0 8px 22px rgba(181,107,216,0.08);
+}
+body[data-theme="light"] .card button#cf-submit:hover { 
+    transform: translateY(-2px); box-shadow: 0 12px 30px rgba(181,107,216,0.12); 
+}
+.cf-status { 
+    font-size: 0.95rem; color: #bfd3ea; 
+}
+.cf-status.success { 
+    color: #9fd67f; 
+}
+.cf-status.error { 
+    color: #ff6b6b; 
+}
+.cf-status.sending { 
+    color: #ffd23f; 
+}
+
+
+@media (max-width: 520px) {
+    .card form { width: 100%; }
+    .card input[type="text"], .card input[type="email"], .card textarea { font-size: 0.95rem; padding: 10px; }
+    .form-row.form-actions { flex-direction: column; align-items: stretch; }
+    .card button#cf-submit { width: 100%; }
+}

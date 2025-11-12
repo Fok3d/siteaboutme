@@ -33,6 +33,11 @@
                     <a href="#">GitHub</a>
                     <a href="#">Instagram</a>
                 </div>
+                    <div class="theme-wrap">
+                        <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme" title="Toggle theme" data-state="light">
+                            <span class="toggle-track"><span class="toggle-knob"></span></span>
+                        </button>
+                    </div>
             </aside>
 
           
@@ -73,10 +78,28 @@
 
                 <section id="contact" class="card">
                     <h2>Contact</h2>
-                    <p>
-                        Prefer email? use <a href="mailto:sklenarm.06@spst.eu">sklenarm.06@spst.eu</a>
-                        or connect on your preferred platform.
-                    </p>
+                    <form id="contactForm" novalidate>
+                        <div class="form-row">
+                            <label for="cf-name">Name</label>
+                            <input id="cf-name" name="name" type="text" required placeholder="Your name" />
+                        </div>
+                        <div class="form-row">
+                            <label for="cf-email">Email</label>
+                            <input id="cf-email" name="email" type="email" required placeholder="example@example.com" />
+                        </div>
+                        <div class="form-row">
+                            <label for="cf-subject">Subject</label>
+                            <input id="cf-subject" name="subject" type="text" placeholder="What's this about?" />
+                        </div>
+                        <div class="form-row">
+                            <label for="cf-message">Message</label>
+                            <textarea id="cf-message" name="message" rows="6" required placeholder="Write your message..."></textarea>
+                        </div>
+                        <div class="form-row form-actions">
+                            <button type="submit" id="cf-submit">Send message...</button>
+                            <span id="cf-status" class="cf-status" aria-live="polite"></span>
+                        </div>
+                    </form>
                 </section>
 
                 <footer class="site-footer">
