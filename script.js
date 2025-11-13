@@ -331,8 +331,7 @@ document.addEventListener('DOMContentLoaded', function () {
   if (!toggle) return;
   var saved = null;
   try { saved = localStorage.getItem('site-theme'); } catch (e) {  }
-  var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-  var current = saved || (prefersDark ? 'dark' : 'light');
+  var current = saved || 'dark';
 
   
   function applyTheme(theme) {
@@ -398,7 +397,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 })();
 
-/* Current Work / Tasks widget */
+
 (function () {
   document.addEventListener('DOMContentLoaded', function () {
     var storageKey = 'site-tasks-v1';
@@ -437,7 +436,7 @@ document.addEventListener('DOMContentLoaded', function () {
       badge.classList.toggle('status-busy', state.busy);
       badge.classList.toggle('status-available', !state.busy);
 
-      // tasks
+      
       listEl.innerHTML = '';
       state.tasks.forEach(function (t, idx) {
         var li = document.createElement('li'); li.className = 'task-item';
@@ -462,7 +461,7 @@ document.addEventListener('DOMContentLoaded', function () {
       var v = (input.value || '').trim(); if (!v) return; state.tasks.push({ title: v }); input.value = ''; save(); render();
     });
 
-  // toggleBusy button removed — busy state can be set via localStorage or UI enhancements later
+  
 
     load(); render();
   });
