@@ -398,6 +398,76 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 })();
 
+/* Current Work / Tasks widget */
+(function () {
+  document.addEventListener('DOMContentLoaded', function () {
+    var storageKey = 'site-tasks-v1';
+    var storageBusy = 'site-busy-v1';
+  var listEl = document.getElementById('taskList');
+  var form = document.getElementById('taskForm');
+  var input = document.getElementById('taskInput');
+  var badge = document.getElementById('now-badge');
+
+  if (!listEl || !form || !input || !badge) return;
+
+    var state = { tasks: [], current: null, busy: false };
+
+    function load() {
+      try {
+        var raw = localStorage.getItem(storageKey);
+        if (raw) {
+          var parsed = JSON.parse(raw);
+          if (parsed && Array.isArray(parsed.tasks)) {
+            state.tasks = parsed.tasks;
+            state.current = typeof parsed.current === 'number' ? parsed.current : null;
+          }
+        }
+      } catch (e) {}
+      try { var b = localStorage.getItem(storageBusy); if (b !== null) state.busy = b === '1'; } catch (e) {}
+    }
+
+    function save() {
+      try { localStorage.setItem(storageKey, JSON.stringify({ tasks: state.tasks, current: state.current })); } catch (e) {}
+      try { localStorage.setItem(storageBusy, state.busy ? '1' : '0'); } catch (e) {}
+    }
+
+    function render() {
+      // badge
+      badge.textContent = state.busy ? 'Busy' : 'Available';
+      badge.classList.toggle('status-busy', state.busy);
+      badge.classList.toggle('status-available', !state.busy);
+
+      // tasks
+      listEl.innerHTML = '';
+      state.tasks.forEach(function (t, idx) {
+        var li = document.createElement('li'); li.className = 'task-item';
+        var span = document.createElement('div'); span.className = 'title'; span.textContent = t.title;
+        if (state.current === idx) span.style.fontWeight = '800';
+        var controls = document.createElement('div'); controls.className = 'controls';
+        var setBtn = document.createElement('button'); setBtn.className = 'small'; setBtn.textContent = (state.current === idx) ? 'Current' : 'Set';
+        setBtn.addEventListener('click', function () { state.current = (state.current === idx) ? null : idx; save(); render(); });
+        var delBtn = document.createElement('button'); delBtn.className = 'small'; delBtn.textContent = 'Delete';
+        delBtn.addEventListener('click', function () { state.tasks.splice(idx, 1); if (state.current === idx) state.current = null; save(); render(); });
+        controls.appendChild(setBtn); controls.appendChild(delBtn);
+        li.appendChild(span); li.appendChild(controls); listEl.appendChild(li);
+      });
+
+      if (state.tasks.length === 0) {
+        var e = document.createElement('li'); e.className = 'task-item'; e.textContent = 'Clock for my year project.'; listEl.appendChild(e);
+      }
+    }
+
+    form.addEventListener('submit', function (ev) {
+      ev.preventDefault();
+      var v = (input.value || '').trim(); if (!v) return; state.tasks.push({ title: v }); input.value = ''; save(); render();
+    });
+
+  // toggleBusy button removed — busy state can be set via localStorage or UI enhancements later
+
+    load(); render();
+  });
+})();
+
 
 (function () {
   document.addEventListener('DOMContentLoaded', function () {

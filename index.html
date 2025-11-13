@@ -22,16 +22,19 @@
 
                 <div class="profile">
                     <h1 class="name">Miroslav Sklenář</h1>
-                    <p class="role">Umělec · Designer</p>
+                    <p class="role">Artist · Designer · Adventurer</p>
                 </div>
                 <nav class="side-nav">
                     <a href="#about">About</a>
                     <a href="#projects">Projects</a>
+                    <a href="#photos">Photos</a>
+                    <a href="#now">Current Work</a>
                     <a href="#contact">Contact</a>
+                    
                 </nav>
                 <div class="social">
-                    <a href="#">GitHub</a>
-                    <a href="#">Instagram</a>
+                    <a href="https://github.com/Fok3d">GitHub</a>
+                    <a href="https://www.instagram.com/_sklenarmirek_/">Instagram</a>
                 </div>
                     <div class="theme-wrap">
                         <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme" title="Toggle theme" data-state="light">
@@ -51,29 +54,62 @@
             </button>
 
             <main class="content">
-                <section id="about" class="card hero">
-                    <h2>Hello</h2>
+                                <section id="about" class="card hero">
+                    <h2>Hey!</h2>
                     <p>
-                      dopsat
+                     I’m a high school student at SPŠ Třebíč, diving into the world of IT. I spend most of my time gaming, coding random ideas, and hanging out with friends. I also love traveling — exploring new countries, getting lost in cool cities, and collecting stories along the way. Oh, and don’t forget to play around with the little white dots floating around the site — they’re more fun than they look!
                     </p>
-                    <div id="zluta" aria-hidden="true"></div>
+                            <div class="about-media">
+                                <img id="zluta" class="profile-photo" src="photos/me.png" alt="Miroslav Sklenář" loading="lazy" aria-hidden="false">
+                                <img id="zluta" class="profile-photo" src="photos/mesexy.jpg" alt="Miroslav Sklenář" loading="lazy" aria-hidden="false">
+                            </div>
                 </section>
 
                 <section id="projects" class="card cards">
                     <h2>Projects</h2>
                     <div class="project-list">
                         <article class="project">
-                            <h3>Project One</h3>
-                            <p>Short description and link to demo or repository.</p>
+                            <a class="project-link" href="https://github.com/zs538" target="_blank" rel="noopener noreferrer">
+                                <img src="photos/image.png" alt="Spaztic garbage project screenshot">
+                                <h3>Spaztic garbage</h3>
+                            </a>
+                            <p class="proj-desc">A chaotic endless runner with an ADHD-inducing soundtrack. <strong>Click the image to view the repo.</strong></p>
                         </article>
+
                         <article class="project">
-                            <h3>Project Two</h3>
-                            <p>Short description and link to demo or repository.</p>
+                            <a class="project-link" href="https://github.com/Fok3d/DungeonsAndDegensWeb" target="_blank" rel="noopener noreferrer">
+                                <img src="photos/dnd.png" alt="Dungeons and Degens project screenshot">
+                                <h3>Dungeons and Degens</h3>
+                            </a>
+                            <p class="proj-desc">A classic D&D table for boring winter nights with the boys. <strong>Click the image to view the repo.</strong></p>
                         </article>
                     </div>
-                    <div id="menu" class="info-panel">
-                        <p>Quick info panel — collapsed by default on small screens.</p>
+                 
+                </section>
+
+                
+                <section id="photos" class="card photos">
+                    <h2>Photos</h2>
+                    <p class="muted">A small selection of my life in last few months.</p>
+                    <div class="photos-grid">
+                        <figure class="photo"><img src="photos/debilek.jpg" alt="Photo 1" loading="lazy"></figure>
+                        <figure class="photo"><img src="photos/loveisland.jpg" alt="Photo 2" loading="lazy"></figure>
+                        <figure class="photo"><img src="photos/mesexy.jpg" alt="Photo 3" loading="lazy"></figure>
+                        <figure class="photo"><img src="photos/psst.jpg" alt="Photo 4" loading="lazy"></figure>
                     </div>
+                </section>
+
+                
+                <section id="now" class="card">
+                    <h2>Current Work <span id="now-badge" class="status-badge" aria-hidden="true">Loading…</span></h2>
+                    <p class="muted">Task im currently working on (this section is just for homework, I have no idea what was I suppose to cook up)</p>
+
+                    <ul id="taskList" class="task-list" aria-live="polite"></ul>
+
+                    <form id="taskForm" class="task-form" aria-label="Add task">
+                        <input id="taskInput" name="task" type="text" placeholder="Add a task or short status" />
+                        <button type="submit" id="taskAdd">Add</button>
+                    </form>
                 </section>
 
                 <section id="contact" class="card">
