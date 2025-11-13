@@ -12,7 +12,7 @@ html { scroll-behavior: smooth; }
 
 
 
-.photos .muted { margin-bottom: 8px; color: rgba(0,0,0,0.6); }
+.photos .muted { margin-bottom: 8px; color: #eee; }
 .photos-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
